@@ -27,10 +27,13 @@ while True:
 	try:
 		cl.photo_upload("/Users/pdeges/Desktop/code/python/igcats/img", meows[rr])
 		print("upload at " + str(datetime.datetime.now()) + " successful")
-	except:
+	except Exception as e:
 		print("something went wrong :'3")
+		print(e)
+		time.sleep(120)
+		
 
 
 	# sleep for 6h
-	time.sleep(21600)
+	time.sleep(60)
 
