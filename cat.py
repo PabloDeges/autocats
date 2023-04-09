@@ -35,9 +35,9 @@ while True:
                 
                 print(e)
                 continue
-                time.sleep(120)
+                time.sleep(1000)
 
 
-	# 60 sec buffer
-	time.sleep(60)
+	# 120 sec buffer
+	time.sleep(120)
 
