@@ -5,6 +5,7 @@ import datetime
 import time
 import os
 import requests
+import pdb
 
 
 cl = Client()
@@ -18,19 +19,25 @@ while True:
 	page = requests.get("https://cataas.com/cat")
 
 	f_ext = os.path.splitext("https://cataas.com/cat")[-1]
-	f_name = 'img{}'.format(f_ext)
+	f_name = 'cat_img{}'.format(f_ext)
 	with open(f_name, 'wb') as f:
-		f.write(page.content)
+            f.write(page.content)
 
 
 	# upload cat image
 	try:
-		cl.photo_upload("/Users/pdeges/Desktop/code/python/igcats/img", meows[rr])
-		print("upload at " + str(datetime.datetime.now()) + " successful")
-	except:
-		print("something went wrong :'3")
+            print("called me")
+            cl.photo_upload("/Users/pdeges/Desktop/code/python/igcats/cat_img", meows[rr])
+            print("upload at " + str(datetime.datetime.now()) + " successful")
+	except Exception as e:
+            print("something went wrong :'3")
+            if str(type(e)) == "<class 'instagrapi.exceptions.UnknownError'>":
+                
+                print(e)
+                continue
+                time.sleep(120)
 
 
-	# sleep for 6h
-	time.sleep(21600)
+	# 60 sec buffer
+	time.sleep(60)
 
